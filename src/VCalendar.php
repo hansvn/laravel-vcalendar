@@ -73,8 +73,11 @@ class Vcalendar {
 			throw new \Exception("Invalid prodid parameters! - must be an array with keys 'company', 'product' and 'language'.", 500);
 		if( ! $this->all_array_keys_exist($data['organizer'], self::$PERSON_PARAMS))
 			throw new \Exception("Invalid organizer parameters! - must be an array with keys 'name' and 'email'.", 500);
-		if( ! $this->all_array_keys_exist($data['attendee'], self::$PERSON_PARAMS))
-			throw new \Exception("Invalid attendee parameters! - must be an array with keys 'name' and 'email'.", 500);
+
+		foreach ($data['attendees'] as $key => $attendee) {
+			if( ! $this->all_array_keys_exist($attendee, self::$PERSON_PARAMS))
+				throw new \Exception("Invalid attendee parameters fo attendee #$key! - must be an array with keys 'name' and 'email'.", 500);
+		}
 			
 		//generate all ics file lines
 		$vcal[]	= "BEGIN:VCALENDAR";

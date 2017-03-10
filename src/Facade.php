@@ -1,6 +1,6 @@
 <?php
-namespace Hansvn\Vcalendar;
 
+namespace Hansvn\Vcalendar;
 use Illuminate\Support\Facades\Facade as IlluminateFacade;
 
 class Facade extends IlluminateFacade {

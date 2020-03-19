@@ -155,8 +155,6 @@ class Vcalendar {
 						$message->cc($cc);
 				}
 
-				$message->bcc('brandworkslogs@gmail.com');
-
 				$message->attach($file, array('mime' => 'text/x-vCalendar'));
 			});
 			//delete the file
